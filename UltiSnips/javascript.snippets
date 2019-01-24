@@ -1,0 +1,128 @@
+snippet react "React Comp with flow types"
+// @flow
+import * as React from 'react'
+
+type ${1:CompName}Props = {}
+
+type $1State = {}
+
+export default class $1 extends React.Component<$1Props, $1State> {
+  state = {}
+  render() {
+    return <div>It works</div>
+  }
+}
+endsnippet
+
+snippet stories "storybook file"
+//@flow
+import * as React from 'react'
+import { storiesOf } from '@storybook/react'
+
+import ${1:Component} from '${2:path to Comp}'
+
+export const stories = storiesOf('$1', module)
+
+stories.add('Default', () => <$1>It works</$1>)
+endsnippet
+
+snippet storysuite "storybook suite"
+// @flow
+import * as React from 'react'
+import { StoryWrapper, StoryVariation } from '_stories/components'
+import { getStories } from '_stories/utils'
+
+import ${1:Component} from '${2:path to Comp}'
+
+const suites = [{ suite: '', units: [unit] }]
+const unit = { desc: '', Comp: () => <div />, props: {} }
+
+getStories(suites)
+endsnippet
+
+snippet styled "styled-components file"
+// @flow
+import styled, { css } from 'styled-components'
+import { theme } from '#'
+
+import Flex from '@/components/Flex'
+
+
+export const ${1:StyledComponent} = styled.${2}``
+endsnippet
+
+snippet sc "styled-component export"
+export const ${1:StyledComponent} = styled.${2}``
+endsnippet
+
+snippet sv "styled template string var"
+\${${1}}$0
+endsnippet
+
+snippet switch "switch statement"
+switch(${1:expression}) {
+	case ${2:case}:
+			$3
+			break;
+	default:
+			return ${3:defaultValue}
+}
+endsnippet
+
+snippet filehead "file header comment"
+/**
+* $1
+*/
+
+endsnippet
+
+snippet todo "todo comment"
+/**
+ * TODO
+ * $1
+ * -- Guy Lemon `date +%m-%d-%Y`
+ */
+
+endsnippet
+
+snippet des "describe block"
+describe('$1', () => {
+  it('works in the general case', () => {
+    expect(true).toBe(true)
+  })	
+})
+endsnippet
+
+snippet it "it block"
+it('$1', () => {
+	$2
+})
+endsnippet
+
+snippet expect "expect statement"
+expect($1)
+endsnippet
+
+snippet cl "console.log"
+console.log($1)
+endsnippet
+
+snippet block "block comment"
+/**
+ * $1
+ * @description
+ *
+ * @example
+ *
+ */
+endsnippet
+
+snippet precode "formatted code block"
+<pre>
+	<code>
+		$1
+	</code>
+</pre>
+endsnippet
+
+
